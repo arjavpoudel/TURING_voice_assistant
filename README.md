@@ -1,6 +1,6 @@
 # AI Voice Assistant 
 
-<p>One of my old(er) projets from the archives. Voice Assistant activated via custom facial recognition program built using the opencv library. Model answering is based on GPT 3 DaVinci MK3.</p>
+<p>One of my old(er) projets from the archives lol. Voice Assistant activated via custom facial recognition program built using the opencv library. Model answering is based on GPT 3 DaVinci MK3.</p>
 
 ## Dependencies:
 
