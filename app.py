@@ -14,14 +14,14 @@ def process_voice_input():
     r = sr.Recognizer()
     engine = pyttsx3.init()
     engine.setProperty('rate', 190)
-    openai.api_key = "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"
+    openai.api_key = {"your_api_key_here"}
 
     user_input = request.form['user_input']
 
     conversation = []
     max_history = 5
-    user_name = "Arjav"
-    bot_name = "Turing"
+    user_name = "username"
+    bot_name = "bot_name"
 
     prompt = user_name + ": " + user_input + "\n" + bot_name + ": "
     conversation.append(prompt)
