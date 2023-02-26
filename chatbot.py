@@ -9,14 +9,14 @@ def chatbot():
     r = sr.Recognizer()
     engine = pyttsx3.init()
     engine.setProperty('rate', 180)
-    openai.api_key = "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"
+    openai.api_key = "your-api-key-here"
 
     greet_me()
 
     conversation = []
     max_history = 5
-    user_name = "Arjav"
-    bot_name = "Turing"
+    user_name = "username"
+    bot_name = "bot_name"
 
     # Adjust microphone sensitivity once at the beginning of the program
     with sr.Microphone() as source:
