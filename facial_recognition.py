@@ -5,7 +5,7 @@ from chatbot import chatbot
 
 
 # Define paths to the training images folder and the face detection cascade file
-training_images_path = "C:/Users/arjav/Desktop/Python Projects/faces_train"
+training_images_path = "your-training-images-filepath-here"
 face_cascade_path = cv2.data.haarcascades + "haarcascade_frontalface_default.xml"
 
 # Load the face detection cascade classifier
@@ -38,7 +38,7 @@ recognizer = cv2.face.LBPHFaceRecognizer_create()
 recognizer.train(training_images, training_labels)
 
 # Create a dictionary of label names for display
-labels_dict = {i: "A_Poudel" for i in range(1, 119)}
+labels_dict = {i: "{value}" for i in range(1, 119)}
 
 # Capture video stream and perform facial recognition
 cap = cv2.VideoCapture(0)
@@ -64,7 +64,8 @@ while True:
     if cv2.waitKey(1) == ord('q'):
         break
 
-if name == "A_Poudel":
+#after quit key pressed, webcam window is destroyed and chatbot function is called.        
+if name == "{value}":
     cap.release()
     cv2.destroyAllWindows()
     chatbot()
