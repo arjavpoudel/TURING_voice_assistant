@@ -10,3 +10,6 @@
 * speechrecognition package
 * numpy 
 * opencv library 
+
+## JS Integration
+<p>The frontend_form.html file is a very simple form that accesses system microphone to display user query. The user can then submit this query which triggers an http post request, thus activating the chatbot logic to provide a verbal response.</p>
