@@ -36,7 +36,7 @@ def chatbot():
         prompt = user_name + ": " + user_input + "\n" + bot_name + ": "
         conversation.append(prompt)
 
-        # Limit conversation to the last max_history exchanges
+        # Limit conversation to the last max_history exchanges. Makes parser more efficient by limiting prompt history (note conversational history tradeoff).
         if len(conversation) > max_history:
             conversation = conversation[-max_history:]
 
