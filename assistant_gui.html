@@ -1,0 +1,62 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Voice Input Form</title>
+  </head>
+  <body>
+    <h1>Voice Input Form</h1>
+    <form id="voice-form">
+      <label for="voice-input">Speak now:</label>
+      <input type="text" name="voice-input" id="voice-input" placeholder="Speak now" readonly>
+      <button type="submit">Submit</button>
+    </form>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+      const form = document.querySelector('#voice-form');
+      const voiceInput = document.querySelector('#voice-input');
+      const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+      const recognition = new SpeechRecognition();
+      
+      recognition.interimResults = true;
+
+      recognition.addEventListener('result', event => {
+        const transcript = Array.from(event.results)
+          .map(result => result[0])
+          .map(result => result.transcript)
+          .join('');
+        
+        voiceInput.value = transcript;
+      });
+      
+      recognition.addEventListener('end', () => {
+        voiceInput.removeAttribute('readonly');
+      });
+
+      form.addEventListener('submit', event => {
+        event.preventDefault();
+        const voiceData = voiceInput.value;
+        $.ajax({
+          url: '/process_voice_input',
+          method: 'POST',
+          data: { voice_input: voiceData },
+          success: response => {
+            console.log(response);
+            // do something with the response
+          },
+          error: error => {
+            console.error(error);
+          }
+        });
+      });
+
+      form.addEventListener('click', event => {
+        event.preventDefault();
+        recognition.start();
+        voiceInput.value = '';
+        voiceInput.setAttribute('readonly', true);
+      });
+    </script>
+  </body>
+</html>
