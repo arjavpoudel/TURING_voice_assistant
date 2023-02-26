@@ -36,7 +36,7 @@ def process_voice_input():
     response = openai.Completion.create(
         model="text-davinci-003",
         prompt=prompt,
-        temperature=0.8,
+        temperature=0.9,
         max_tokens=128,
         top_p=0.6,
         frequency_penalty=0,
