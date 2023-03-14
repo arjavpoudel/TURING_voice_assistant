@@ -13,7 +13,7 @@ def chatbot():
     r = sr.Recognizer()
     engine = pyttsx3.init()
     engine.setProperty('rate', 190)
-    openai.api_key = "your-api-key-here"
+    openai.api_key = "{your-api-key-here}"
 
 
     conversation = []
